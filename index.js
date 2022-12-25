@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+let port = 3000
 const fs = require('fs')
 const shell = require('shelljs')
 const dotenv = require('dotenv')
@@ -26,6 +26,8 @@ app.post('/delete', async (req, res) => {
   const result = await oneDelete(process.env.MONGO_HOST, body.login, body.pass, body.db, body.collection, body.query)
   res.send(result)
 })
+
+port = process.env.MONGO_API_PORT||port
 
 app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`)
