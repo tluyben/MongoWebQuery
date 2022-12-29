@@ -27,7 +27,7 @@ app.post('/delete', async (req, res) => {
   res.send(result)
 })
 
-port = process.env.MONGO_API_PORT||port
+port = process.env.MONGO_API_PORT || port
 
 app.listen(port, async () => {
   console.log(`Example app listening on port ${port}`)
